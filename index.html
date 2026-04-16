@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>To-Do App</title>
+
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    input {
+      padding: 8px;
+      width: 200px;
+    }
+
+    button {
+      padding: 8px 12px;
+      margin: 5px;
+      background-color: blue;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      margin: 10px;
+      font-size: 18px;
+    }
+  </style>
+
+</head>
+<body>
+
+  <h1>To-Do App</h1>
+
+  <input type="text" id="taskInput" placeholder="Enter task">
+  <button onclick="addTask()">Add</button>
+
+  <ul id="taskList"></ul>
+
+  <script>
+    function addTask() {
+      let task = document.getElementById("taskInput").value;
+
+      if (task === "") {
+        alert("Please enter a task");
+        return;
+      }
+
+      let li = document.createElement("li");
+      li.innerText = task;
+
+      // Delete when clicked
+      li.onclick = function () {
+        li.remove();
+      };
+
+      document.getElementById("taskList").appendChild(li);
+
+      // Clear input
+      document.getElementById("taskInput").value = "";
+    }
+  </script>
+
+</body>
+</html>
