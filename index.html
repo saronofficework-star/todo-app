@@ -55,13 +55,23 @@
       }
 
       let li = document.createElement("li");
-      li.innerText = task;
 
-      // Delete when clicked
-      li.onclick = function () {
+      // Create text
+      let span = document.createElement("span");
+      span.innerText = task;
+
+      // Create delete button
+      let btn = document.createElement("button");
+      btn.innerText = "Delete";
+
+      btn.onclick = function () {
         li.remove();
       };
 
+      // Add text and button to li
+      li.appendChild(span);
+      li.appendChild(btn);
+      
       document.getElementById("taskList").appendChild(li);
 
       // Clear input
